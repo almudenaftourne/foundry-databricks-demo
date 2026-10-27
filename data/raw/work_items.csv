@@ -1,0 +1,45 @@
+work_item_id,project_id,title,category,assignee_handle,priority,status,created_date,due_date,completed_date,estimated_hours,actual_hours,blocked_reason,updated_at
+WI001,P001,Configure workspace baseline,configuration,platform_builder,high,done,2026-10-01,2026-10-10,2026-10-12,24,40,,2026-10-22T09:00:00Z
+WI002,P001,Approve network access,security,network_owner,high,blocked,2026-10-01,2026-10-18,,16,20,Waiting for security approval,2026-10-22T09:00:00Z
+WI003,P001,Automate deployment pipeline,development,platform_builder,high,in_progress,2026-10-01,2026-10-22,,32,28,,2026-10-22T09:00:00Z
+WI004,P001,Write operator handover,documentation,,medium,todo,2026-10-01,2026-10-28,,8,0,,2026-10-22T09:00:00Z
+WI005,P001,Validate resource tags,testing,platform_tester,low,done,2026-10-01,2026-10-15,2026-10-14,8,12,,2026-10-22T09:00:00Z
+WI006,P002,Inventory existing permissions,analysis,identity_analyst,high,done,2026-10-01,2026-10-12,2026-10-10,8,8,,2026-10-22T09:00:00Z
+WI007,P002,Review privileged groups,security,identity_owner,high,in_progress,2026-10-01,2026-10-20,,16,12,,2026-10-22T09:00:00Z
+WI008,P002,Confirm application owners,analysis,identity_analyst,medium,blocked,2026-10-01,2026-10-23,,8,6,Waiting for owner confirmation,2026-10-22T09:00:00Z
+WI009,P002,Publish access review guide,documentation,,medium,todo,2026-10-01,2026-11-01,,8,0,,2026-10-22T09:00:00Z
+WI010,P002,Retire legacy review spreadsheet,cleanup,identity_analyst,low,cancelled,2026-10-01,2026-10-17,,4,4,,2026-10-22T09:00:00Z
+WI011,P003,Define reporting metrics,analysis,analytics_owner,high,done,2026-10-01,2026-10-12,2026-10-11,24,30,,2026-10-22T09:00:00Z
+WI012,P003,Approve source dataset access,security,data_builder,high,blocked,2026-10-01,2026-10-21,,16,24,Waiting for data access approval,2026-10-22T09:00:00Z
+WI013,P003,Build reporting views,development,data_builder,high,in_progress,2026-10-01,2026-10-25,,24,20,,2026-10-22T09:00:00Z
+WI014,P003,Document reporting definitions,documentation,,medium,todo,2026-10-01,2026-10-28,,8,0,,2026-10-22T09:00:00Z
+WI015,P003,Test aggregation rules,testing,data_tester,medium,done,2026-10-01,2026-10-16,2026-10-15,8,8,,2026-10-22T09:00:00Z
+WI016,P004,Profile source records,analysis,quality_analyst,medium,done,2026-10-01,2026-10-12,2026-10-12,8,12,,2026-10-22T09:00:00Z
+WI017,P004,Implement validation rules,development,data_builder,medium,in_progress,2026-10-01,2026-10-22,,16,10,,2026-10-22T09:00:00Z
+WI018,P004,Resolve identifier mapping,analysis,quality_owner,high,blocked,2026-10-01,2026-10-19,,12,16,Waiting for source identifier mapping,2026-10-22T09:00:00Z
+WI019,P004,Schedule quality report,configuration,,low,todo,2026-10-01,2026-11-02,,4,0,,2026-10-22T09:00:00Z
+WI020,P004,Review rejected record format,testing,data_tester,low,done,2026-10-01,2026-10-15,2026-10-14,4,2,,2026-10-22T09:00:00Z
+WI021,P005,Design portal navigation,design,portal_designer,high,done,2026-10-01,2026-10-12,2026-10-13,16,20,,2026-10-22T09:00:00Z
+WI022,P005,Approve sign-in configuration,security,portal_owner,high,blocked,2026-10-01,2026-10-20,,12,16,Waiting for identity provider approval,2026-10-22T09:00:00Z
+WI023,P005,Build request form,development,app_builder,high,in_progress,2026-10-01,2026-10-23,,24,24,,2026-10-22T09:00:00Z
+WI024,P005,Prepare portal launch notes,documentation,,medium,todo,2026-10-01,2026-10-29,,6,0,,2026-10-22T09:00:00Z
+WI025,P005,Test keyboard navigation,testing,app_tester,medium,done,2026-10-01,2026-10-16,2026-10-15,8,12,,2026-10-22T09:00:00Z
+WI026,P006,Review API consumers,analysis,api_owner,medium,done,2026-10-01,2026-10-12,2026-10-11,8,10,,2026-10-22T09:00:00Z
+WI027,P006,Implement versioned endpoint,development,app_builder,medium,in_progress,2026-10-01,2026-10-27,,24,20,,2026-10-22T09:00:00Z
+WI028,P006,Approve integration contract,analysis,api_owner,high,blocked,2026-10-01,2026-10-22,,8,12,Waiting for consumer contract approval,2026-10-22T09:00:00Z
+WI029,P006,Publish API migration guide,documentation,,medium,todo,2026-10-01,2026-11-05,,8,0,,2026-10-22T09:00:00Z
+WI030,P006,Test error responses,testing,app_tester,medium,done,2026-10-01,2026-10-16,2026-10-16,8,6,,2026-10-22T09:00:00Z
+WI031,P007,Map onboarding process,analysis,process_owner,medium,done,2026-10-01,2026-10-12,2026-10-12,8,8,,2026-10-22T09:00:00Z
+WI032,P007,Update onboarding checklist,documentation,operations_writer,medium,in_progress,2026-10-01,2026-10-21,,8,6,,2026-10-22T09:00:00Z
+WI033,P007,Confirm training coverage,analysis,process_owner,medium,blocked,2026-10-01,2026-10-28,,8,4,Waiting for training owner availability,2026-10-22T09:00:00Z
+WI034,P007,Publish onboarding package,configuration,,low,todo,2026-10-01,2026-11-03,,4,0,,2026-10-22T09:00:00Z
+WI035,P007,Print onboarding booklets,cleanup,operations_writer,low,cancelled,2026-10-01,2026-10-18,,4,2,,2026-10-22T09:00:00Z
+WI036,P008,Inventory knowledge articles,analysis,knowledge_owner,low,done,2026-10-01,2026-10-08,2026-10-07,6,6,,2026-10-22T09:00:00Z
+WI037,P008,Remove duplicate articles,cleanup,operations_writer,low,done,2026-10-01,2026-10-09,2026-10-08,4,4,,2026-10-22T09:00:00Z
+WI038,P008,Refresh outdated guidance,documentation,operations_writer,medium,done,2026-10-01,2026-10-12,2026-10-12,8,8,,2026-10-22T09:00:00Z
+WI039,P008,Validate article links,testing,operations_tester,low,done,2026-10-01,2026-10-14,2026-10-13,4,2,,2026-10-22T09:00:00Z
+WI040,P008,Publish article index,configuration,knowledge_owner,low,done,2026-10-01,2026-10-16,2026-10-15,4,5,,2026-10-22T09:00:00Z
+WI001,P001,Configure workspace baseline,configuration,platform_builder,high,in_progress,2026-10-01,2026-10-10,,24,18,,2026-10-08T09:00:00Z
+WI041,P003,Invalid status exercise,testing,data_tester,low,waiting_for_magic,2026-10-01,2026-10-28,,4,1,,2026-10-22T09:00:00Z
+WI042,P999,Unknown project exercise,testing,app_tester,low,todo,2026-10-01,2026-10-28,,4,1,,2026-10-22T09:00:00Z
+WI043,P004,Invalid date exercise,testing,data_tester,low,todo,2026-10-01,2026-02-30,,4,1,,2026-10-22T09:00:00Z

@@ -1,0 +1,10 @@
+.env
+.env.*
+.azure/
+.foundry/
+.venv/
+__pycache__/
+*.pyc
+.git/
+.vscode/
+README.md

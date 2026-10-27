@@ -1,0 +1,31 @@
+# Publish only the reviewed tutorial, synthetic fixture, notebooks, and portable source.
+/*
+!/.gitignore
+!/README.md
+!/THIRD-PARTY-NOTICES.md
+!/docs/
+!/data/
+!/notebooks/
+!/agents/
+
+# Never publish local credentials, runtime state, caches, or raw screenshots.
+**/.env
+**/.env.*
+!**/.env.example
+**/.azure/
+**/.foundry/
+**/.venv/
+**/__pycache__/
+**/*.py[cod]
+**/*.pem
+**/*.key
+**/*.pfx
+**/*.p12
+**/*.log
+**/*.zip
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.pdf
+**/*.pptx
+**/.DS_Store

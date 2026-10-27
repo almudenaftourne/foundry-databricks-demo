@@ -1,0 +1,5 @@
+team_id,team_name,region,manager_handle,hourly_rate_eur
+T01,Platform Services,Europe,platform_lead,80
+T02,Data Services,Europe,data_lead,100
+T03,Application Services,North America,apps_lead,90
+T04,Business Operations,Asia Pacific,operations_lead,70

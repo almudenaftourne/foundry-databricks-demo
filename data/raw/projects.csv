@@ -1,0 +1,9 @@
+project_id,team_id,project_name,owner_handle,priority,status,start_date,target_date,budget_eur,currency
+P001,T01,Workspace rollout,platform_lead,high,active,2026-09-01,2026-10-30,6000,EUR
+P002,T01,Access review,identity_owner,high,active,2026-09-15,2026-11-06,4000,EUR
+P003,T02,Reporting refresh,analytics_owner,high,active,2026-09-01,2026-10-30,8000,EUR
+P004,T02,Data quality checks,quality_owner,medium,active,2026-09-15,2026-11-06,5000,EUR
+P005,T03,Self-service portal,portal_owner,high,active,2026-09-01,2026-10-30,6000,EUR
+P006,T03,Service API update,api_owner,medium,active,2026-09-15,2026-11-13,10000,EUR
+P007,T04,Onboarding refresh,process_owner,medium,on_hold,2026-09-15,2026-11-06,2000,EUR
+P008,T04,Knowledge base cleanup,knowledge_owner,low,completed,2026-09-01,2026-10-16,2500,EUR
