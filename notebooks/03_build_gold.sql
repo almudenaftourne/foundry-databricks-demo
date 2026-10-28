@@ -2,7 +2,7 @@
 -- MAGIC %md
 -- MAGIC # Gold: agent-ready business views
 -- MAGIC Run this entire stage with Run all on Serverless; stop on any error.
--- MAGIC Databricks execution is not yet verified. Source: validated Silver tables.
+-- MAGIC Source: the validated Silver tables from the preceding notebook.
 -- MAGIC Only the three named Gold views are created/replaced; no source table is changed.
 -- MAGIC Do not replace unrelated views or rerun after custom grants without reviewing
 -- MAGIC ownership/metadata implications. All business dates use 2026-10-23.

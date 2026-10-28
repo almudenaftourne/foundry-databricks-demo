@@ -6,14 +6,16 @@
 **Goal:** prove standalone Microsoft Agent Framework hosting before connecting
 specialists to the coordinator.
 
-**Verified baseline:** the lab's version 1 hosted specialist returned the
-expected four-bullet response with **21 open, 9 overdue, 42.9%**, and a
-missing-data caveat. The clean public layout is a portable adaptation of
-that source; a fresh-clone deployment has not yet been executed.
+**Current scope:** this lesson covers standalone hosting. The source now defines
+the delivery-risk analyst, but these revised instructions still need a remote
+test. Connecting it to the coordinator is subsequent work.
+The [capability matrix](capability-matrix.md) distinguishes the original
+remote smoke test from the not-yet-tested fresh-clone source deployment.
 
 ## What this agent does
 
-It summarizes synthetic facts supplied in a request. It does not retrieve
+It explains delivery attention signals from synthetic facts supplied in a request.
+It does not retrieve
 data from Databricks, call Genie, or know current project records.
 For this tiny task, a second agent is not necessary; the purpose is to
 prove framework hosting independently before adding collaboration.
@@ -64,7 +66,6 @@ From the repository root:
 
 ```powershell
 Set-Location '.\agents\maf'
-$env:AZURE_DEV_USER_AGENT = 'microsoft_foundry_skill'
 azd env new maf-lab
 ```
 
@@ -143,10 +144,9 @@ Do not query external data.
 9 overdue, 42.9% overdue, and acknowledgment of missing information without
 a fabricated forecast.
 
-The lab screenshot showed exactly that response for a hosted version 1,
-alongside the container log stream. This proves the first remote smoke test,
-not arbitrary-input accuracy, runtime identity propagation, or distributed
-tracing. The agent should not request Databricks consent because it has no
+Inspect the hosted response and container activity. This checks remote
+execution, not arbitrary-input accuracy, runtime identity propagation, or
+distributed tracing. It should not request Databricks consent: it has no
 Databricks tools.
 
 ## Costs and lifecycle
@@ -164,10 +164,9 @@ before changing state. Keep shared resources and the working coordinator intact.
 
 ## Next
 
-LangGraph hosting and coordinator-to-specialist collaboration are pending.
-Test a separate LangGraph specialist with equivalent supplied facts before
-connecting the agents. Observability, security boundary tests, evaluation,
-and resilience belong to the L300 track.
+Continue with [Lesson 15: LangGraph hosting](15-host-langgraph.md). Test the
+two distinct roles remotely before connecting them. Observability, security
+boundary tests, evaluation, and resilience belong to the L300 track.
 
 ## Official references
 

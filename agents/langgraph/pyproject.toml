@@ -1,0 +1,15 @@
+[project]
+name = "foundry-databricks-langgraph-specialist"
+version = "0.1.0"
+description = "A hosted LangGraph specialist drafting evidence-backed project owner/action checklists."
+requires-python = ">=3.13"
+dependencies = [
+    "langchain-azure-ai[hosting,opentelemetry]>=1.2.9",
+    "azure-ai-projects",
+    "openai<3",
+    "httpx<1",
+    "langchain",
+    "langchain-openai",
+    "python-dotenv",
+    "debugpy",
+]

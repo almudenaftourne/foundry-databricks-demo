@@ -5,11 +5,9 @@
 **Goal:** have the coordinator retrieve a real benchmark answer through the
 curated Genie MCP tool.
 
-**Verified baseline:** Managed OAuth, tool discovery, a successful Genie
-polling call, generated Gold SQL with statement state `SUCCEEDED`, and
-**21 open / 9 overdue** for **2026-10-23** were observed in the lab.
-This is response-level evidence, not distributed tracing or proof of the
-effective principal at every service hop.
+**Expected:** a real tool result matching **21 open / 9 overdue** for
+**2026-10-23**. This question passed in the lab; detailed evidence and limits
+belong in the [capability matrix](capability-matrix.md).
 
 ## Prerequisites
 
@@ -26,7 +24,8 @@ permissions, create replacement tenants, or copy another person's credentials.
 
 ## 1. Enable the documented MCP prerequisite
 
-As an authorized workspace administrator:
+This is a one-time **workspace-administrator** task, not a reason to grant
+ordinary participants admin access:
 
 1. In Databricks, open profile/settings **Previews**.
 2. Enable **Managed MCP Servers**, if required and not already enabled.
@@ -50,11 +49,21 @@ Public Preview when this lab was tested.
 Keep the actual hostname/ID in your private lab configuration. You do not
 deploy a custom MCP server or publish Genie as a model for this step.
 
-## 3. Create the Managed OAuth connection
+## 3. Create the OAuth connection
+
+Use **Managed OAuth if the connector offers it**; that is the portal path
+tested in this lab. Normal sign-in and consent remain required.
+
+Microsoft's [Databricks integration guide](https://learn.microsoft.com/azure/databricks/integrations/microsoft-foundry)
+currently documents a **Custom OAuth** setup. If that is the option available
+in your environment, an authorized Databricks account administrator must
+register the application first. Follow the [Custom OAuth setup section](appendix-authentication.md#9-account-console-and-custom-oauth),
+then return here for consent and the benchmark. This is an alternative supported
+setup, not evidence that authentication is broken or an internal-user workaround.
 
 1. In Foundry, open the existing project and coordinator.
 2. Use **Tools > Add** and select **Azure Databricks Genie**.
-3. Choose **Managed** OAuth.
+3. Choose **Managed** OAuth when available.
 4. Fill the endpoint parameters shown by the form:
 
    | Parameter | Value |
@@ -65,9 +74,9 @@ deploy a custom MCP server or publish Genie as a model for this step.
 5. Give the connection a descriptive name, such as `databricks-genie-lab`.
 6. Connect/attach it to the coordinator and save.
 
-Do not create a Custom OAuth application or supply a client secret on the
-main path. Managed and Custom are different configurations; do not attach
-both for the same controlled test.
+With Managed OAuth, do not create an extra application or invent a client secret.
+Managed and Custom are different configurations; do not attach both for the
+same controlled test.
 
 ## 4. Complete connection consent
 
@@ -103,8 +112,6 @@ Connection consent and tool-call approval are different controls:
 - Databricks permissions still control accessible data.
 
 One user question may require multiple calls and multiple approvals.
-The lab showed query discovery and polling, and two approval prompts were
-reported. The exact mapping of every prompt to a call was not captured.
 
 | Playground option | Appropriate use |
 | --- | --- |
@@ -130,13 +137,8 @@ Open the response's tool details:
    snapshot date **2026-10-23**.
 4. Confirm statement success and compare returned data with the answer.
 
-The observed lab output included Gold SQL, named result columns, and
-`SUCCEEDED`; a screenshot clipped the actual result rows, while a separate
-completed response showed the correct answer.
-
-The response-history view explicitly stated that it did not contain
-distributed traces. Application Insights setup is deferred to L300; it is
-not a prerequisite for this baseline.
+Response history is not distributed tracing. Application Insights setup is
+deferred to L300; it is not a prerequisite for this baseline.
 
 ## Data and capability boundaries
 

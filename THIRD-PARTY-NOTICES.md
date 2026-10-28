@@ -5,8 +5,12 @@ The Agent Framework specialist is adapted from Microsoft's
 The specialist instructions and portable configuration have been adapted for
 this synthetic lab. Microsoft does not endorse this repository.
 
+The LangGraph action planner follows Microsoft's
+[configuration-driven Responses sample](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/10-run).
+Its business instructions and portable configuration have been adapted.
+
 The following upstream license applies to the adapted sample code in
-`agents/maf/`. Dependencies retain their respective licenses.
+`agents/maf/` and `agents/langgraph/`. Dependencies retain their respective licenses.
 
 ## Microsoft Foundry samples: MIT License
 

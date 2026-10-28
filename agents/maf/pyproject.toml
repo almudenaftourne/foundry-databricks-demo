@@ -1,7 +1,7 @@
 [project]
 name = "foundry-databricks-maf-specialist"
 version = "0.1.0"
-description = "A hosted Agent Framework specialist that summarizes supplied synthetic facts."
+description = "A hosted Agent Framework delivery-risk analyst using supplied synthetic evidence."
 requires-python = ">=3.13"
 dependencies = [
     "agent-framework-foundry",

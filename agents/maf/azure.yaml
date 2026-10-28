@@ -13,7 +13,7 @@ services:
     kind: hosted
     language: python
     project: .
-    description: Summarizes supplied synthetic project facts without independent data access.
+    description: Explains delivery attention signals from supplied project evidence without data tools.
     codeConfiguration:
       runtime: python_3_13
       entryPoint: main.py

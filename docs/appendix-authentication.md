@@ -7,6 +7,9 @@ The main tutorial assumes an approved organizational identity and correctly
 configured access. This annex covers issues that can occur; it is not a
 mandatory sequence of workarounds. The lab encountered some of these issues,
 but that does not make them universal product limitations.
+They have not been established as exclusive to internal users.
+Normal sign-in, same-tenant requirements, consent, and required access remain
+in the main tutorial.
 
 No actual user names, account addresses, tenant/subscription IDs, workspace
 hosts, OAuth credentials, or raw authentication screenshots are included here.
@@ -152,18 +155,30 @@ the tools are understood; their persistence was not verified in this lab.
 
 ## 9. Account console and Custom OAuth
 
-Account administration is not required for the main Managed OAuth path.
+Account administration is not required to register your own application
+when the Managed OAuth option is available and used.
 Workspace access, account-console access, and account-admin status are
 different checks. A redirect to a workspace does not prove account admin.
 
-Only pursue Custom OAuth if it is required and an authorized Databricks
-account administrator can register the application. Use the exact callback
-provided by Foundry and the required scopes; do not guess a callback,
-use dummy credentials, or place secrets in the repository.
+Custom OAuth is the alternative described in the current
+[Databricks integration guide](https://learn.microsoft.com/azure/databricks/integrations/microsoft-foundry).
+It is a normal setup path where Managed OAuth is unavailable or not appropriate,
+not an authentication-error workaround:
+
+1. Have an authorized Databricks account administrator
+   [register the OAuth application](https://learn.microsoft.com/azure/databricks/integrations/enable-disable-oauth#enable-custom-app-ui).
+2. Use the exact callback supplied by Foundry and the required scopes; do not
+   guess callbacks or create dummy credentials.
+3. In the Foundry Genie connector's Custom OAuth form, supply the application
+   client ID, secret if applicable, and authorization/token/refresh URLs from
+   the approved registration and provider documentation.
+4. Store credentials only in the approved connection/secret store, not source.
+5. Connect it, then return to [Lesson 13](13-connect-genie.md) for normal user
+   consent, tool approval, and an actual benchmark call.
 
 Initial Databricks account-admin bootstrap has separate documented Entra
 administrator requirements. Do not automatically grant those roles to the
-demo user. The lab's Custom OAuth fallback was not completed.
+demo user. The lab's Custom OAuth path was not completed.
 
 ## References
 

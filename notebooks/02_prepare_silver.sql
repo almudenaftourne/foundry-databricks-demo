@@ -1,8 +1,8 @@
 -- Databricks notebook source
 -- MAGIC %md
 -- MAGIC # Bronze to Silver: select, validate, and type
--- MAGIC Draft: not yet executed in Databricks. Run one SQL cell at a time on
--- MAGIC Serverless. Start with the preview below and stop for the first checkpoint.
+-- MAGIC Run the SQL cells in order on Serverless. Check the preview below
+-- MAGIC before continuing to validation and persistent writes.
 -- MAGIC Bronze stays unchanged. All persistent writes target integration_lab.silver.
 -- MAGIC This fixed-fixture batch is not an incremental production pipeline.
 

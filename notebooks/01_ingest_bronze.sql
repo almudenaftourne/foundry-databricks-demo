@@ -1,9 +1,9 @@
 -- Databricks notebook source
 -- MAGIC %md
 -- MAGIC # Raw CSV files to Bronze Delta tables
--- MAGIC Draft: not yet executed in Databricks. Run one SQL cell at a time.
+-- MAGIC Run the SQL cells in order on approved Serverless compute.
 -- MAGIC This notebook starts chargeable compute when executed. Initially run only
--- MAGIC the preview cell below, then stop for the first checkpoint.
+-- MAGIC the preview cell below and check its result before creating tables.
 -- MAGIC Source fields stay STRING. Blank CSV fields may read as NULL.
 -- MAGIC No deduplication, date conversion, or business filtering happens here.
 
