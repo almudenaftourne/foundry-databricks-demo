@@ -12,6 +12,10 @@ It receives facts in the request, not credentials or direct Databricks access.
 The table format and recommendation boundaries are model instructions, not
 an enforced schema or deterministic policy engine.
 
-**Status:** source prepared; remote build, output quality, and coordinator
-invocation are not yet verified. Dependencies are not fully locked.
+**Status:** portable-source version 2 passed remote build, supplied-evidence and
+missing-evidence smoke tests, and native coordinator invocation.
+A fresh-clone/new-environment deployment remains unverified.
+Dependencies are not fully locked.
+The cloud builder uses [requirements.txt](requirements.txt), which the
+contributor tests check against [pyproject.toml](pyproject.toml).
 Follow [Lesson 15](../../docs/15-host-langgraph.md) for deployment and smoke tests.

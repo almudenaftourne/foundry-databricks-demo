@@ -14,7 +14,8 @@ from business changes so an unexpected result is easier to diagnose.
 | Exact model deployment name | Coordinator model selection and `AZURE_AI_MODEL_DEPLOYMENT_NAME` |
 | Databricks workspace hostname and Genie ID | Genie tool connection in [Lesson 13](13-connect-genie.md) |
 | Catalog/schema/volume names | All notebook references, volume paths, Genie sources, example SQL, and data-grant examples |
-| Hosted service/agent names | Service keys and `name` in `azure.yaml`, deployment commands, and later specialist connections |
+| Hosted service/agent names | Service keys and `name` in `azure.yaml`, deployment commands, and OpenAPI paths in [Lesson 16](16-connect-specialists.md) |
+| Specialist toolbox and connections | Toolbox MCP endpoint and its project-identity connection; keep these separate from Genie's OAuth connection |
 
 Use private, ignored configuration for actual resource values. Never put tokens,
 secrets, or populated environment files in Git. `.env.example` contains placeholders.
@@ -25,11 +26,12 @@ version. Review existing resources before deployment.
 
 - **Genie definitions and boundaries:** edit the instruction block in
   [Lesson 10](10-create-genie.md), then apply it to the actual Genie.
-- **Coordinator behavior:** edit/apply its [instructions](12-create-coordinator.md).
-  Cross-specialist routing instructions are not yet implemented in that lesson.
+- **Coordinator behavior:** start with [Lesson 12](12-create-coordinator.md),
+  then apply the [workflow instructions](../agents/coordinator/instructions.txt)
+  and connections in [Lesson 16](16-connect-specialists.md). Keep fresh-query
+  context, returned-ID polling, and both specialist completion checks.
 - **Agent Framework behavior:** edit [main.py](../agents/maf/main.py).
-  The original deployed task summarizes facts; the revised delivery-risk
-  instructions still need deployment and remote verification.
+  The delivery-risk role has passed a remote supplied-evidence smoke test.
 - **LangGraph workflow:** edit `INSTRUCTIONS` in
   [main.py](../agents/langgraph/main.py). The hosting adapter loads its exported
   graph through [langgraph.json](../agents/langgraph/langgraph.json).

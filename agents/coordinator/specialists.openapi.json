@@ -1,0 +1,92 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Hosted delivery specialists",
+    "version": "1.0.0",
+    "description": "Invoke the hosted analyst and planner with retrieved synthetic evidence. No data tools or system-changing actions are exposed."
+  },
+  "servers": [
+    {
+      "url": "https://example.invalid/api/projects/example",
+      "description": "Replace with your existing Foundry project endpoint."
+    }
+  ],
+  "paths": {
+    "/agents/foundry-dbx-maf-specialist/endpoint/protocols/openai/responses": {
+      "post": {
+        "operationId": "analyze_delivery",
+        "summary": "Ask the Agent Framework analyst to explain supplied delivery attention signals.",
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "required": true,
+            "schema": {"type": "string", "enum": ["v1"], "default": "v1"}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["input", "stream"],
+                "properties": {
+                  "input": {
+                    "type": "string",
+                    "description": "Retrieved synthetic snapshot, counts, project evidence, units, and limitations. Never credentials."
+                  },
+                  "stream": {"type": "boolean", "enum": [false], "default": false}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Hosted Responses JSON. Check status and read text in output message content.",
+            "content": {"application/json": {"schema": {"type": "object"}}}
+          }
+        }
+      }
+    },
+    "/agents/foundry-dbx-langgraph-specialist/endpoint/protocols/openai/responses": {
+      "post": {
+        "operationId": "plan_actions",
+        "summary": "Ask the LangGraph planner for an evidence/recorded-owner/proposed-next-step checklist.",
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "required": true,
+            "schema": {"type": "string", "enum": ["v1"], "default": "v1"}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["input", "stream"],
+                "properties": {
+                  "input": {
+                    "type": "string",
+                    "description": "Retrieved synthetic project IDs, evidence, recorded owners, snapshot, units, and missing information. Never credentials."
+                  },
+                  "stream": {"type": "boolean", "enum": [false], "default": false}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Hosted Responses JSON. Check status and read text in output message content.",
+            "content": {"application/json": {"schema": {"type": "object"}}}
+          }
+        }
+      }
+    }
+  }
+}

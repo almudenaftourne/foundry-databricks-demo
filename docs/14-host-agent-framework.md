@@ -6,11 +6,11 @@
 **Goal:** prove standalone Microsoft Agent Framework hosting before connecting
 specialists to the coordinator.
 
-**Current scope:** this lesson covers standalone hosting. The source now defines
-the delivery-risk analyst, but these revised instructions still need a remote
-test. Connecting it to the coordinator is subsequent work.
-The [capability matrix](capability-matrix.md) distinguishes the original
-remote smoke test from the not-yet-tested fresh-clone source deployment.
+**Current scope:** standalone hosting. The portable delivery-risk analyst
+passed remote build and smoke tests as version 3 in the lab. Connect it using
+[Lesson 16](16-connect-specialists.md).
+The [capability matrix](capability-matrix.md) separates these checks from an
+unverified fresh-clone/new-environment deployment.
 
 ## What this agent does
 
@@ -39,6 +39,8 @@ For Windows developer-tool setup, follow the
 The hosted quickstart requires azd 1.27.1 or later.
 
 The main path uses **source-code deployment with remote dependency build**.
+Keep the included [requirements.txt](../agents/maf/requirements.txt): it selects
+the cloud builder's pip dependency-install path.
 It does not require successful local installation of the agent's Python
 packages, Docker, or Application Insights. Use only approved dependencies
 and cloud execution; this is not a way to evade an established restriction.
@@ -136,13 +138,15 @@ Send:
 ```text
 Summarize these supplied facts. Snapshot: 2026-10-23.
 Open work items: 21. Overdue open work items: 9.
+Blocked open work items: 7. Unassigned open work items: 7.
+P001 has an effort-cost-minus-budget variance of +2000 EUR.
 No remaining-effort, capacity, or dependency data is supplied.
 Do not query external data.
 ```
 
 **Expected:** at most four short bullets containing the snapshot, 21 open,
-9 overdue, 42.9% overdue, and acknowledgment of missing information without
-a fabricated forecast.
+9 overdue, 7 blocked, 7 unassigned, 42.9% overdue, P001's positive modeled
+overrun, and acknowledgment of missing information without a fabricated forecast.
 
 Inspect the hosted response and container activity. This checks remote
 execution, not arbitrary-input accuracy, runtime identity propagation, or
@@ -164,7 +168,8 @@ before changing state. Keep shared resources and the working coordinator intact.
 
 ## Next
 
-Continue with [Lesson 15: LangGraph hosting](15-host-langgraph.md). Test the
+Continue with [Lesson 15: LangGraph hosting](15-host-langgraph.md), then
+[connect both specialists](16-connect-specialists.md). Test the
 two distinct roles remotely before connecting them. Observability, security
 boundary tests, evaluation, and resilience belong to the L300 track.
 

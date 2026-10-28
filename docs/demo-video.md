@@ -3,11 +3,12 @@
 [Home](../README.md) | [Setup](00-prerequisites.md) |
 [Learning path](learning-path.md) | [Evidence](capability-matrix.md)
 
-**Status: target runbook, not recording-ready.** Genie integration and the
-initial Agent Framework hosting test passed. Both business-specialist source
-roles are prepared; their remote output, LangGraph hosting, and three-agent
-collaboration still require verification. Do not present this sequence as
-already working.
+**Status: main-question baseline ready for video capture; video not yet recorded.**
+Three fresh Genie-backed Toolbox reviews passed, including an intended-user
+Foundry playground rehearsal with normal per-call approvals. Actual downstream
+results confirmed coordinator 9, Agent Framework 3, LangGraph 2, and Toolbox 1.
+Business figures and all seven recorded owners matched the synthetic fixture.
+See [Lesson 16](16-connect-specialists.md) for connections.
 
 ## Audience and message
 
@@ -26,14 +27,15 @@ Delivery lead
     |
 Foundry coordinator
     |-- Curated Genie MCP --> Unity Catalog Gold views
-    |-- Hosted Agent Framework delivery analyst
-    `-- Hosted LangGraph action planner
+    `-- Native Toolbox MCP
+          |-- Hosted Agent Framework delivery analyst
+          `-- Hosted LangGraph action planner
     |
 Evidence-backed delivery brief + proposed owner/action checklist
 ```
 
 There are **three Foundry agents**. Genie is an additional Databricks agent
-used as a data tool. Only the coordinator retrieves data; specialists work
+used as a data tool; the toolbox is not an agent. Only the coordinator retrieves data; specialists work
 with supplied query results. No credentials are passed in those facts.
 
 Framework diversity is the teaching objective, not a claim that this small
@@ -57,9 +59,12 @@ These are timing targets, not measured latency.
 
 ```text
 Using the dataset snapshot as of 2026-10-23, prepare a project delivery review.
-Identify projects needing attention because of overdue or blocked work and
-modeled effort-budget overruns. Explain the evidence and propose a concise
-next-step checklist for the recorded project owners.
+Include four headline counts: total open, overdue open, blocked open, and
+unassigned open work items, plus the overdue-open share of total open.
+Identify projects needing attention because of overdue, blocked, or unassigned
+open work or modeled effort-budget overruns. Below-budget variance alone is not
+an attention signal. Explain the evidence and propose a concise next-step
+checklist for the recorded project owners.
 Use Genie for the facts and both specialists for their respective tasks.
 Separate observed facts, recommendations, and missing information.
 Do not change any records or claim to execute the recommendations.
@@ -77,15 +82,20 @@ Can this snapshot reliably predict when P001 will finish?
 
 It must acknowledge missing forecasting evidence. Any new Genie call must
 include sufficient context: do not assume the curated MCP endpoint retains
-the previous conversation.
+the previous conversation. This optional follow-up is outside the three-run
+main-question acceptance; rehearse it separately before including it in a video.
 
 ## Recording-readiness checks
 
 - Deploy from the public source and record which remote versions are used.
 - In three fresh remote conversations, the main question must obtain actual
   Genie query/poll success and invoke **both** hosted specialists.
-- Verify returned facts against the fixture, including the fixed date,
-  open/overdue totals if reported, and project-budget variances.
+- Verify all four headline counts: **21 open, 9 overdue, 7 blocked, 7 unassigned**,
+  **42.9%** overdue, and snapshot **2026-10-23**. Positive modeled overruns are
+  **P001 +EUR 2,000, P003 +EUR 200, P005 +EUR 480**. There are seven attention
+  projects; healthy P008 must not appear in the action table.
+- Refresh the playground after external updates and select the intended saved
+  version. Do not record an older cached coordinator configuration.
 - Each recommendation must refer to returned evidence and a recorded owner.
   Do not invent owners, causes, remaining hours, or completion dates.
 - Confirm distinct analyst/planner outputs, no manual copying between agents,
@@ -101,6 +111,7 @@ These are small demo acceptance checks, not a full evaluation or security audit.
 
 - Use only synthetic records. Crop/mask personal account details, real resource
   identifiers, browser URLs, authentication dialogs, and any secrets.
+  Genie IDs also appear inside MCP tool names and approval details.
 - Prepare tabs and authenticate privately before recording; rehearsal does not
   prove that another user will have identical access.
 - Use a new conversation and review visible history before capture.

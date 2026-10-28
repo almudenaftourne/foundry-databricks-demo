@@ -3,7 +3,8 @@
 [Previous](14-host-agent-framework.md) | [Home](../README.md) |
 [Source](../agents/langgraph/README.md) | [Video target](demo-video.md)
 
-**Status:** source prepared; remote deployment and invocation are not yet verified.
+**Status:** portable-source version 2 passed remote build, both smoke cases below,
+and native coordinator invocation in the existing lab.
 
 **Goal:** host the second framework specialist in the existing project. It
 drafts a proposed owner/action checklist from supplied evidence; it does not
@@ -30,6 +31,8 @@ Keep actual configuration private. Review the existing project/model, agent name
 `foundry-dbx-langgraph-specialist`, **0.5 CPU / 1 GiB**, and remote dependency build.
 The entrypoint is the hosting module, not `python main.py`: the graph is exported
 in `main.py` and loaded through `langgraph.json`.
+Keep [requirements.txt](../agents/langgraph/requirements.txt) in the source
+package so the remote builder installs dependencies with pip.
 
 ## Deploy and test when approved
 
@@ -59,11 +62,11 @@ explicit missing-evidence response, not invented rows.
 ## Complete the business workflow
 
 Test the Agent Framework analyst with project evidence as well, not only
-the initial global-counts smoke prompt. Its revised role has not yet been
-remotely verified.
+the initial global-counts smoke prompt. Both revised roles passed their lab
+smoke tests; repeat them in your environment.
 
-Independent responses are not collaboration. The next step is to verify the
-supported coordinator-to-hosted-specialist connection, then satisfy the
+Independent responses are not collaboration. Continue with
+[Lesson 16: native specialist connections](16-connect-specialists.md), then satisfy the
 [video acceptance checks](demo-video.md). Do not manually copy results between
 three playground chats and describe that as a completed workflow.
 

@@ -30,11 +30,12 @@ are part of this version.
    [09](09-build-gold.md). Validate the fixed synthetic fixture.
 3. **Curate and connect:** [10](10-create-genie.md) through
    [13](13-connect-genie.md). Obtain real query/poll results through Foundry.
-4. **Host specialists:** [14](14-host-agent-framework.md) proves Agent Framework
-   hosting. [15](15-host-langgraph.md) covers the prepared LangGraph planner.
-   Both revised business roles still require remote verification.
-5. **Connect and rehearse:** verify the supported coordinator-to-specialist
-   mechanism remotely, then run the [video acceptance checks](demo-video.md).
+4. **Host specialists:** [14](14-host-agent-framework.md) covers Agent Framework
+   and [15](15-host-langgraph.md) covers LangGraph. Both portable roles have
+   passed remote smoke tests in the lab.
+5. **Connect and rehearse:** [16](16-connect-specialists.md) connects both
+   hosted endpoints using a native Toolbox/OpenAPI configuration and project identity.
+   Then run the [video acceptance checks](demo-video.md).
 
 The completion criterion is a working remote workflow deployed from the
 public repository, not three unrelated playground conversations or generated code.

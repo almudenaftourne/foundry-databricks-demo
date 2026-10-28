@@ -1,6 +1,8 @@
+import json
 import os
 from pathlib import Path
 import runpy
+import tomllib
 import types
 import unittest
 from unittest.mock import Mock, patch
@@ -21,6 +23,46 @@ def module(name: str, **attributes: object) -> types.ModuleType:
 
 
 class SpecialistStartupTests(unittest.TestCase):
+    def test_coordinator_openapi_contract(self) -> None:
+        spec = json.loads(
+            (AGENTS / "coordinator" / "specialists.openapi.json").read_text()
+        )
+        self.assertEqual(
+            spec["servers"][0]["url"], "https://example.invalid/api/projects/example"
+        )
+        operations = [
+            item["post"] for item in spec["paths"].values()
+        ]
+        self.assertEqual(
+            {item["operationId"] for item in operations},
+            {"analyze_delivery", "plan_actions"},
+        )
+        self.assertEqual(len(operations), 2)
+        instructions = (AGENTS / "coordinator" / "instructions.txt").read_text()
+        for operation in operations:
+            with self.subTest(operation=operation["operationId"]):
+                self.assertIn(
+                    f"delivery_specialists___{operation['operationId']}", instructions
+                )
+                schema = operation["requestBody"]["content"]["application/json"]["schema"]
+                self.assertEqual(set(schema["required"]), {"input", "stream"})
+                self.assertEqual(schema["properties"]["stream"]["enum"], [False])
+                self.assertEqual(
+                    operation["parameters"][0]["schema"]["enum"], ["v1"]
+                )
+
+    def test_cloud_build_requirements_match_project_dependencies(self) -> None:
+        for specialist in ("maf", "langgraph"):
+            with self.subTest(specialist=specialist):
+                root = AGENTS / specialist
+                project = tomllib.loads((root / "pyproject.toml").read_text())
+                requirements = [
+                    line.strip()
+                    for line in (root / "requirements.txt").read_text().splitlines()
+                    if line.strip() and not line.lstrip().startswith("#")
+                ]
+                self.assertCountEqual(requirements, project["project"]["dependencies"])
+
     def setUp(self) -> None:
         self.credential = Mock(return_value="credential")
         self.client = Mock(return_value="chat-client")
