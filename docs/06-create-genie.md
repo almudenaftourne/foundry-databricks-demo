@@ -149,11 +149,7 @@ the expected answers in the question.
 Inspect generated SQL where available: correct view/grain, fixed date, and
 returned values matching the narrative. Use a fresh conversation when checking
 independent questions. The [full answer key](../data/README.md) supports additional
-checks; a full evaluation is not required to try the connector.
-
-For baseline progression, obtain the correct count answer and record exactly
-which other checks passed. Do not claim a full suite or general accuracy from
-a few examples. A before/after tuning experiment is optional, not part of setup.
+checks.
 
 ## Sharing and costs
 

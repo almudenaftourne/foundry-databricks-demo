@@ -3,22 +3,18 @@
 [Home](../README.md) | [Previous: Genie connection](09-connect-genie.md) |
 [Portable source](../agents/maf/README.md)
 
-**Goal:** prove standalone Microsoft Agent Framework hosting before connecting
-specialists to the coordinator.
+**Goal:** deploy and test a standalone Microsoft Agent Framework hosted agent
+before connecting the specialists to the coordinator.
 
-**Current scope:** standalone hosting. The portable delivery-risk analyst
-passed remote build and smoke tests as version 3 in the lab. Connect it using
+**Scope:** standalone hosting. Connect the agent to the coordinator in
 [Lesson 12](12-connect-specialists.md).
-The [capability matrix](capability-matrix.md) separates these checks from an
-unverified fresh-clone/new-environment deployment.
 
 ## What this agent does
 
 It explains delivery attention signals from synthetic facts supplied in a request.
-It does not retrieve
-data from Databricks, call Genie, or know current project records.
-For this tiny task, a second agent is not necessary; the purpose is to
-prove framework hosting independently before adding collaboration.
+It does not retrieve data from Databricks, call Genie, or know current project
+records. This lesson tests framework hosting on its own before the specialists
+are connected.
 
 The instructions live in [main.py](../agents/maf/main.py).
 Formatting and arithmetic are model instructions, not a deterministic
@@ -32,18 +28,18 @@ calculation tool or enforced output schema.
   applicable project/agent identity prerequisites.
 - Approved hosted compute, inference costs, and cloud package builds.
 - Git, Azure CLI, and Azure Developer CLI with the Foundry extension.
-  The lab used Python 3.13, azd 1.37.1, and Foundry extension beta.22.
+  The tutorial was written with Python 3.13, azd 1.37.1, and Foundry extension beta.22.
 
 For Windows developer-tool setup, follow the
 [official environment guide](https://learn.microsoft.com/azure/foundry/how-to/develop/install-cli-sdk).
 The hosted quickstart requires azd 1.27.1 or later.
 
-The main path uses **source-code deployment with remote dependency build**.
+This tutorial uses **source-code deployment with remote dependency build**.
 Keep the included [requirements.txt](../agents/maf/requirements.txt): it selects
 the cloud builder's pip dependency-install path.
 It does not require successful local installation of the agent's Python
 packages, Docker, or Application Insights. Use only approved dependencies
-and cloud execution; this is not a way to evade an established restriction.
+and cloud execution.
 
 Authentication/role failures belong in the
 [authentication annex](appendix-authentication.md).
@@ -57,7 +53,7 @@ az login
 azd auth login
 ```
 
-Choose the same approved lab identity, tenant, and subscription. Portal
+Choose the same approved identity, tenant, and subscription. Portal
 sign-in does not authenticate both command-line tools. Do not share device
 codes, callback URLs, or tokens.
 
@@ -131,7 +127,7 @@ sanitized error and resolve that cause before retrying.
 
 ## 5. Test the deployed agent
 
-Open its playground as the authorized lab user and confirm **Kind: hosted**.
+Open its playground as the authorized user and confirm **Kind: hosted**.
 Send:
 
 ```text
@@ -156,11 +152,10 @@ Databricks tools.
 
 Current Foundry documentation describes on-demand hosted compute and
 deprovisioning after an idle timeout; the documented default is 15 minutes.
-The lab's actual timeout and idle behavior were not inspected.
 Do not assume closing VS Code disables the hosted endpoint or that the
-whole lab becomes free when compute idles.
+whole environment stops incurring charges when compute idles.
 
-There is no `azd ai agent stop` command in the CLI version tested.
+There is no `azd ai agent stop` command in the azd version listed above.
 Endpoint disablement is a separate lifecycle operation; consult the
 [management guide](https://learn.microsoft.com/azure/foundry/agents/how-to/manage-hosted-agent)
 before changing state. Keep shared resources and the working coordinator intact.
@@ -170,7 +165,7 @@ before changing state. Keep shared resources and the working coordinator intact.
 Continue with [Lesson 11: LangGraph hosting](11-host-langgraph.md), then
 [connect both specialists](12-connect-specialists.md). Test the
 two distinct roles remotely before connecting them. Observability, security
-boundary tests, evaluation, and resilience are outside this baseline.
+boundary tests, evaluation, and resilience are outside this tutorial.
 
 ## Official references
 

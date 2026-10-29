@@ -31,16 +31,15 @@ version. Review existing resources before deployment.
   and connections in [Lesson 12](12-connect-specialists.md). Keep fresh-query
   context, returned-ID polling, and both specialist completion checks.
 - **Agent Framework behavior:** edit [main.py](../agents/maf/main.py).
-  The delivery-risk role has passed a remote supplied-evidence smoke test.
 - **LangGraph workflow:** edit `INSTRUCTIONS` in
   [main.py](../agents/langgraph/main.py). The hosting adapter loads its exported
   graph through [langgraph.json](../agents/langgraph/langgraph.json).
 
 Source edits alone do not update a hosted agent. Review the build/deployment,
-then test the new remote version. Use returned Genie facts; do not seed
-expected answers into agent prompts to make a demonstration pass.
+then test the new remote version. Use returned Genie facts; do not place
+expected answers in agent prompts.
 
-## Change the dataset only after the baseline works
+## Change the dataset after the tutorial works end to end
 
 The example's **2026-10-23** date is intentionally fixed. Changing it, the CSVs,
 or business rules requires updating and revalidating:

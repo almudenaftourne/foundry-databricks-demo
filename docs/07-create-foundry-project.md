@@ -2,10 +2,7 @@
 
 [Home](../README.md) | [Previous: native Genie](06-create-genie.md)
 
-**Goal:** open a dedicated lab project before adding the coordinator.
-The lab's project was created and later used for the working Genie
-integration and hosted specialist. This does not certify every
-storage/networking setting or a fresh-clone deployment.
+**Goal:** open a dedicated project before adding the coordinator.
 
 ## Understand the objects
 
@@ -21,19 +18,19 @@ duplicate simply because the portal or VS Code has not selected it.
 
 ## 1. Review access, region, and costs
 
-Sign in with the intended organizational lab identity and select the approved
+Sign in with the intended organizational identity and select the approved
 subscription and directory. Follow [Lesson 00](00-prerequisites.md) for access
 requirements and [Lesson 01](01-prepare-databricks.md) for regional checks.
 
-The lab used Sweden Central. Current documentation reviewed for the lab
-listed that region for Agent Service and hosted agents, but readers must
-recheck current availability, subscription quota, and their chosen models.
-Co-locating with Databricks simplifies the lab; it is not itself a Genie
-connector requirement or an inference-residency guarantee. Model deployment
+The tutorial was written using Sweden Central. Check current availability of
+Agent Service and hosted agents in your region, your subscription quota, and
+your chosen models.
+Co-locating with Databricks is optional: it is not a Genie connector
+requirement or an inference-residency guarantee. Model deployment
 type also affects processing geography.
 
 Review network access, identity, storage, additional resources, and charges
-before deployment. Do not treat defaults as independently verified settings.
+before deployment.
 Do not put Foundry resources in a Databricks-managed resource group.
 
 ## 2. Create the resource and project, if needed
@@ -51,7 +48,7 @@ create the parent resource. This is an alternative, not a second required
 creation route. After either route, inspect what already exists.
 
 Example names such as `foundry-dbx-lab` and `foundry-dbx-lab-project` are
-illustrative, not endpoints to copy or proof of deployed resources.
+illustrative.
 Resource creation can incur charges.
 
 ## 3. Open and verify the project

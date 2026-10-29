@@ -16,7 +16,5 @@ The template's server is deliberately nonfunctional. Replace it in your private
 tool configuration with your existing Foundry project endpoint. If you rename
 the hosted agents, update the corresponding OpenAPI paths.
 
-Native project-identity calls to both hosted agents work, and a full
-Genie-to-Toolbox-to-specialists review completed in the lab with coordinator
-version 9, Agent Framework 3, LangGraph 2, and Toolbox 1. This is not production
-certification. Test again after changing instructions, tools, or models.
+Tested versions: coordinator 9, Agent Framework 3, LangGraph 2, and Toolbox 1.
+Test again after changing instructions, tools, or models.

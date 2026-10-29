@@ -10,7 +10,7 @@ This uses a native **Foundry Toolbox** containing an **OpenAPI tool** for the
 hosted **Responses endpoints**. The coordinator consumes its MCP endpoint.
 The toolbox is managed tool configuration, not a fourth agent or custom proxy.
 No A2A support or locally running application is required; see
-[verified status](capability-matrix.md) for why this route was used.
+[tested configuration](capability-matrix.md) for why this route was used.
 
 ## Before you start
 
@@ -33,9 +33,8 @@ identity, scoped to this existing Foundry project. This role permits agent
 invocation; it does not grant Databricks access or role administration.
 Allow normal role propagation before testing.
 
-This is a setup prerequisite, not a workaround for an authentication incident.
 The Genie connection continues using its own configured authentication.
-Do not claim that the project identity is the end user's identity.
+The project identity is not the end user's identity.
 
 ## 2. Create the specialist toolbox
 
@@ -68,7 +67,7 @@ For programmatic setup, the connection properties are `category: "OpenAPI"`,
 Use its full ARM connection resource ID in the tool's
 `auth.security_scheme.project_connection_id`, with `auth.type: "project_connection"`.
 Use SDK **`OpenApiToolboxTool`**, not the direct-agent `OpenApiTool`, with
-`project.toolboxes.create_version`. The lab used `default_params: ["api-version"]`.
+`project.toolboxes.create_version`. The tutorial used `default_params: ["api-version"]`.
 See the [official OpenAPI guide](https://learn.microsoft.com/azure/foundry/agents/how-to/tools/openapi)
 and [toolbox guide](https://learn.microsoft.com/azure/foundry/agents/how-to/tools/toolbox)
 for complete connection and SDK examples.
@@ -104,8 +103,8 @@ uses `category: "RemoteTool"` and `authType: "ProjectManagedIdentity"`.
 Replace the initial coordinator instructions with the
 [workflow instructions](../agents/coordinator/instructions.txt), then save
 a new agent version. Keep the existing deployed model and Genie connection.
-Under **Setup > Parameters**, use **medium reasoning effort** for the lab's
-reasoning-model baseline. Allow **16,000 max output tokens**:
+Under **Setup > Parameters**, use **medium reasoning effort** for a
+reasoning model. Allow **16,000 max output tokens**:
 this budget includes reasoning and tool-call arguments, not just the short
 visible answer. If you customize to a model without reasoning settings,
 omit unsupported settings and verify its tool behavior separately.

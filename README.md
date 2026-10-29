@@ -1,11 +1,12 @@
 # Microsoft Foundry + Azure Databricks demo
 
-A cloud-first, introductory demo: use curated Databricks data in a Foundry
-workflow with specialists built on Agent Framework and LangGraph.
+A cloud-first tutorial: use curated Databricks data in a Foundry workflow with
+specialist agents built on Agent Framework and LangGraph.
 
-This is a learning demo with synthetic data, not production certification.
+The repository uses synthetic data and is intended for learning, not as
+production guidance.
 
-## What it shows
+## What you build
 
 A delivery lead asks: **Which projects need attention, why, and what should
 their owners do next?**
@@ -19,13 +20,13 @@ Delivery lead -> Foundry coordinator
                -> evidence-backed brief + proposed owner/action checklist
 ```
 
-Three Foundry agents, plus Genie as an external data tool. The Toolbox is tool
-configuration, not an agent. Only the coordinator retrieves data; the
-specialists reason over the facts it passes. Recommendations are drafts: nothing
-is executed. This small task does not inherently need three agents; the design
-demonstrates cross-framework composition.
+The solution has three Foundry agents, plus Genie as an external data tool. The
+Toolbox is tool configuration, not an agent. Only the coordinator retrieves data;
+the specialists reason over the facts it passes. Recommendations are proposals:
+nothing is executed. The two specialists use different frameworks to show how
+hosted agents from different frameworks can be combined in one project.
 
-See what has been tested in the [verified status](docs/capability-matrix.md).
+[Tested configuration](docs/capability-matrix.md) lists what has been verified.
 
 ## Set it up
 
@@ -61,18 +62,18 @@ pwsh -File .\data\validate-fixture.ps1
 The SQL notebooks in [notebooks](notebooks/) build the data layers; the lessons
 tell you when to run them. Cloud compute and model inference can incur charges.
 
-## Going further
+## Beyond this tutorial
 
-This repository covers the basic integration. Natural next steps, none of which
-are verified here: evaluation, tracing across both platforms, two-user permission
-tests, approval policy, failure injection, and cost measurements.
+The tutorial covers the basic integration. It does not cover evaluation, tracing
+across both platforms, multi-user permission testing, approval policy, failure
+handling, or cost measurement.
 
-## Safety
+## Before you start
 
 - Use your own endpoint, tenant, subscription, model deployment, Databricks host,
   and Genie ID. Keep secrets and populated `.env` / `.azure` files out of Git.
-- No separate lakehouse replica is required, but query results are sent to Foundry.
-  Do not describe this as "no data leaves Databricks".
+- Query results returned by Genie are sent to Foundry and processed by its
+  models. Review your organization's data-handling requirements first.
 - Use approved regions, permissions, and spending limits. Closing a browser does
   not disable a hosted endpoint or stop all billable resources.
 

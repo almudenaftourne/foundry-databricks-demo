@@ -20,7 +20,7 @@ to create tables in `integration_lab.silver`.
    reconciliation before running the five persistent `CREATE TABLE` cells.
 6. Run the remaining validation cells. Stop at any error.
 
-No chat confirmation is needed between steps. This notebook runs in one session:
+This notebook runs in one session:
 temporary views must be recreated after a restart, without blindly rerunning
 successful persistent writes.
 

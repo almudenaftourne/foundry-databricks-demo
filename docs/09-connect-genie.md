@@ -6,19 +6,19 @@
 curated Genie MCP tool.
 
 **Expected:** a real tool result matching **21 open / 9 overdue** for
-**2026-10-23**. This question passed in the lab; detailed evidence and limits
-belong in the [capability matrix](capability-matrix.md).
+**2026-10-23**. See [tested configuration](capability-matrix.md) for what has been
+verified.
 
 ## Prerequisites
 
 - The saved coordinator and a supported model deployment.
-- The curated Genie from Lesson 06 and a successful native Genie baseline.
+- The curated Genie from Lesson 06 and a successful native Genie test.
 - An approved organizational identity with access to the intended Foundry
   project, Databricks workspace, Genie, and Gold data.
-- Preview use, data processing, and transfer to the agent approved for the lab.
+- Preview use, data processing, and transfer to the agent approved by your organization.
 
-Use the same intended lab identity consistently during setup and consent.
-This main path assumes normal access and sign-in work. If they do not,
+Use the same intended identity consistently during setup and consent.
+This lesson assumes normal access and sign-in work. If they do not,
 use the [authentication annex](appendix-authentication.md); do not broaden
 permissions, create replacement tenants, or copy another person's credentials.
 
@@ -31,8 +31,8 @@ ordinary participants admin access:
 2. Enable **Managed MCP Servers**, if required and not already enabled.
 3. Accept preview terms only under your organization's approved policy.
 
-UI labels and preview requirements may change. The native connector was
-Public Preview when this lab was tested.
+UI labels and preview requirements may change. The native connector was in
+Public Preview at the time of writing.
 
 ## 2. Identify the curated endpoint
 
@@ -51,15 +51,14 @@ deploy a custom MCP server or publish Genie as a model for this step.
 
 ## 3. Create the OAuth connection
 
-Use **Managed OAuth if the connector offers it**; that is the portal path
-tested in this lab. Normal sign-in and consent remain required.
+Use **Managed OAuth if the connector offers it**. Normal sign-in and consent remain required.
 
 Microsoft's [Databricks integration guide](https://learn.microsoft.com/azure/databricks/integrations/microsoft-foundry)
 currently documents a **Custom OAuth** setup. If that is the option available
 in your environment, an authorized Databricks account administrator must
 register the application first. Follow the [Custom OAuth setup section](appendix-authentication.md#9-account-console-and-custom-oauth),
-then return here for consent and the benchmark. This is an alternative supported
-setup, not evidence that authentication is broken or an internal-user workaround.
+then return here for consent and the benchmark. This is an alternative
+supported setup.
 
 1. In Foundry, open the existing project and coordinator.
 2. Use **Tools > Add** and select **Azure Databricks Genie**.
@@ -117,10 +116,10 @@ One user question may require multiple calls and multiple approvals.
 | --- | --- |
 | Approve once | First controlled test or a sensitive/unfamiliar operation. Approves the displayed call, not the entire user question. |
 | Always approve this tool | A specific reviewed tool used repeatedly. Review both query and polling tools individually; the query tool can accept questions beyond this exact benchmark. |
-| Always approve all Azure Databricks Genie tools | Broad approval across the connected server's tools. Not the default recommendation for this lab. |
+| Always approve all Azure Databricks Genie tools | Broad approval across the connected server's tools. Not recommended by default. |
 
-The persistence/revocation of playground preferences across reloads,
-conversations, agent versions, and users has not been tested. For production,
+Playground approval preferences across reloads, conversations, agent versions,
+and users are not covered here. For production,
 use explicit application policies, tool allowlists, least-privilege
 permissions, and approval logs. Keep approval for high-impact writes or
 sensitive exports. Read-only data can still be sensitive.
@@ -138,7 +137,7 @@ Open the response's tool details:
 4. Confirm statement success and compare returned data with the answer.
 
 Response history is not distributed tracing. Application Insights setup is
-not a prerequisite for this baseline.
+not a prerequisite for this tutorial.
 
 ## Data and capability boundaries
 
@@ -147,7 +146,7 @@ not a prerequisite for this baseline.
 - This endpoint does not pass conversation history to Genie; test
   follow-up context separately.
 - Successful sign-in does not prove runtime identity propagation.
-- This baseline is not a two-user security test or a full evaluation.
+- This lesson does not test two-user security or evaluate answer quality.
 
 Continue with [Lesson 10: host the Agent Framework specialist](10-host-agent-framework.md).
 

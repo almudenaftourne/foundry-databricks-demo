@@ -5,10 +5,6 @@
 **Goal:** create a Foundry-managed coordinator before connecting its data tool.
 This is a prompt agent, not the Python hosted specialist built later.
 
-**Evidence:** a saved coordinator correctly declined to invent data when Genie
-was unavailable. The subsequent Genie integration also passed its first
-benchmark. See the [capability matrix](capability-matrix.md).
-
 ## Prerequisites
 
 - The Foundry project from Lesson 07.
@@ -16,7 +12,7 @@ benchmark. See the [capability matrix](capability-matrix.md).
   permissions, following [Foundry RBAC](https://learn.microsoft.com/azure/foundry/concepts/rbac-foundry).
 - Approved model availability, quota, pricing, and processing geography.
 
-The main path assumes these prerequisites work. For permission banners or
+This lesson assumes these prerequisites work. For permission banners or
 account mismatches, use the [authentication annex](appendix-authentication.md).
 
 ## 1. Select or deploy a model
@@ -24,14 +20,14 @@ account mismatches, use the [authentication annex](appendix-authentication.md).
 1. Open the existing project in [Foundry](https://ai.azure.com).
 2. Under **Models**, inspect existing deployments before creating another.
 3. If needed, use the model catalog to deploy a supported chat/tool-calling
-   model. The observed lab used **gpt-5.4-mini**, deployment
+   model. The examples use **gpt-5.4-mini**, deployment
    `gpt-5.4-mini`, **Global Standard**.
 4. Review the current model version, quota, pricing, and deployment type
    before deployment. Availability can change by subscription and region.
 5. Record your exact deployment name privately; later configuration must use
    the deployment name, which need not equal the model name.
 
-**Global Standard is not a regional inference guarantee.** If the lab requires
+**Global Standard is not a regional inference guarantee.** If you require
 regional processing, choose an approved supported deployment type instead.
 Do not purchase provisioned capacity or create extra models just to match
 an example name. Rate limits are not spending caps.

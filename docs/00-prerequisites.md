@@ -14,12 +14,11 @@ git clone https://github.com/almudenaftourne/foundry-databricks-demo.git
 Set-Location '.\foundry-databricks-demo'
 ```
 
-Use the repository files, not a separately downloaded framework sample.
 The [customization guide](customization.md) explains what to change.
 
 ## Agree who does what
 
-You do not need to be an administrator for every part of the lab.
+You do not need to be an administrator for every part of this tutorial.
 An authorized administrator can prepare the environment for a normal builder.
 
 | Who | Required preparation |
@@ -31,8 +30,8 @@ An authorized administrator can prepare the environment for a normal builder.
 
 Azure resource roles, Databricks workspace roles, and Unity Catalog privileges
 are separate. Subscription Owner, Global Administrator, and workspace admin
-are **not** ordinary participant requirements. A privileged operator's
-successful demo does not establish least-privilege end-user behavior.
+are **not** ordinary participant requirements. Testing as a privileged user does
+not show how the solution behaves for a least-privilege user.
 
 ## Check the environment
 
@@ -44,8 +43,8 @@ successful demo does not establish least-privilege end-user behavior.
    Do not recreate working resources to match an example name.
 
 For Foundry OAuth identity passthrough, the user's Entra tenant must match the
-Foundry project's tenant. Normal sign-in and consent are part of the tutorial;
-unexpected tenant/account errors belong in the
+Foundry project's tenant. Sign-in and consent are part of the tutorial;
+unexpected tenant/account errors are covered in the
 [authentication annex](appendix-authentication.md).
 
 ## Tools and costs
@@ -54,7 +53,7 @@ Data preparation uses the Databricks browser UI and SQL notebooks. For hosted
 deployment, install [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli),
 [Azure Developer CLI and the Foundry extension](https://learn.microsoft.com/azure/foundry/how-to/develop/install-cli-sdk)
 before [Lesson 10](10-host-agent-framework.md).
-Python package installation and local debugging are not main-path steps.
+Local Python installation and debugging are not required.
 
 Compute, storage, inference, and hosted runtime can incur charges. Budget alerts
 are not a hard cap; closing a browser does not disable deployed endpoints.

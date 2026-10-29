@@ -4,8 +4,8 @@
 [Hosted specialist](10-host-agent-framework.md)
 
 The main tutorial assumes an approved organizational identity and normal
-sign-in. Use this annex only if something goes wrong. These issues occurred in
-the lab; they are not universal product limitations. No real account names,
+sign-in. Use this annex if something goes wrong. Not every user will encounter
+these issues. No real account names,
 tenant IDs, hosts, or credentials are included.
 
 ## 1. Which permission system is involved?
@@ -33,17 +33,17 @@ profiles to isolate identities.
 ## 3. Personal accounts, guests, and tenant selection
 
 An `.onmicrosoft.com` domain is a normal Entra tenant domain, and a `#EXT#`
-principal is an external-identity representation. In the lab, a personal-account
-sign-in failed with an unexpected tenant context, while a directory-native lab
-identity completed Managed OAuth. That does not prove every personal or guest
-account fails. Use an approved identity in the same tenant as the Foundry project;
-a new identity needs its own resource, workspace, data, and Foundry access.
+principal is an external-identity representation. A personal-account sign-in can
+fail with an unexpected tenant context, while a directory-native identity in the
+same tenant completes Managed OAuth. Use an approved identity in the same tenant
+as the Foundry project; a new identity needs its own resource, workspace, data,
+and Foundry access.
 
 ## 4. A new user cannot open the workspace
 
 Azure Reader gives resource visibility, not Databricks membership. A workspace
 admin can add the user under **Settings > Identity and access > Users**. Do not
-add ordinary learners to the `admins` group.
+add ordinary participants to the `admins` group.
 
 ## 5. Genie warns about missing SELECT
 
@@ -90,14 +90,13 @@ separate from tool-call approval: query and polling tools can each ask, and
 
 ## 9. Custom OAuth (alternative to Managed OAuth)
 
-Custom OAuth is a normal setup where Managed OAuth is unavailable, not an
-error workaround. A Databricks account administrator
+Custom OAuth is a normal setup where Managed OAuth is unavailable. A Databricks account administrator
 [registers the OAuth application](https://learn.microsoft.com/azure/databricks/integrations/enable-disable-oauth#enable-custom-app-ui)
 using the exact callback shown by Foundry. Enter the client ID, secret if
 applicable, and endpoints in the Genie connector's Custom OAuth form, store
 credentials only in the approved secret store, then return to
 [Lesson 09](09-connect-genie.md) for consent and the benchmark. Do not guess
-callbacks or create dummy credentials. The lab did not complete this path.
+callbacks or create dummy credentials.
 
 ## References
 

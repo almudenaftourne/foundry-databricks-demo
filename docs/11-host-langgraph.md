@@ -3,9 +3,6 @@
 [Previous](10-host-agent-framework.md) | [Home](../README.md) |
 [Source](../agents/langgraph/README.md)
 
-**Status:** portable-source version 2 passed remote build and both smoke cases
-below in the lab.
-
 **Goal:** host the second framework specialist in the existing project. It
 drafts a proposed owner/action checklist from supplied evidence; it does not
 query Databricks, create tickets, or execute recommendations.
@@ -59,15 +56,13 @@ label, not a fixture owner or real account.
 Also ask for a project checklist without supplying project facts. Expect an
 explicit missing-evidence response, not invented rows.
 
-## Complete the business workflow
+## Next
 
 Test the Agent Framework analyst with project evidence as well, not only
-the initial global-counts smoke prompt. Both revised roles passed their lab
-smoke tests; repeat them in your environment.
+the initial global-counts smoke prompt.
 
-Independent responses are not collaboration. Continue with
+Independent responses do not demonstrate collaboration. Continue with
 [Lesson 12: native specialist connections](12-connect-specialists.md) and run its
-workflow test. Do not manually copy results between
-three playground chats and describe that as a completed workflow.
+workflow test.
 
 Reference: [official configuration-driven LangGraph sample](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/10-run).

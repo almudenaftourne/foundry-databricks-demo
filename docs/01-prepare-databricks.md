@@ -13,7 +13,7 @@ integration_lab
   gold                 business-ready views for Genie
 ```
 
-The lab used **Sweden Central**; use any approved region that supports the
+The tutorial was written using **Sweden Central**; use any approved region that supports the
 services below. Documented support is not a quota reservation.
 
 | Service | Check before you start |
