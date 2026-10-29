@@ -18,4 +18,4 @@ A fresh-clone/new-environment deployment remains unverified.
 Dependencies are not fully locked.
 The cloud builder uses [requirements.txt](requirements.txt), which the
 contributor tests check against [pyproject.toml](pyproject.toml).
-Follow [Lesson 15](../../docs/15-host-langgraph.md) for deployment and smoke tests.
+Follow [Lesson 11](../../docs/11-host-langgraph.md) for deployment and smoke tests.

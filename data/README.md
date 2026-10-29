@@ -1,6 +1,6 @@
 # Synthetic project-delivery dataset
 
-[Lab home](../README.md) | [Upload lesson](../docs/06-upload-source-files.md)
+[Lab home](../README.md) | [Upload lesson](../docs/02-upload-source-files.md)
 
 All data is fictional. Handles are role-based labels, not accounts or email
 addresses. No dataset field grants access or implements a security policy.
@@ -124,11 +124,10 @@ Use decimal arithmetic for monetary values.
 ## Checked benchmark answers
 
 The local validation script passes these expected values. Bronze, Silver,
-and Gold checks were subsequently learner-validated in Databricks; selected
-native Genie questions and the Foundry-to-Genie 21-open / 9-overdue question
-also passed. This table is the full answer key, not a claim that every row
-has been tested through each interface. See the
-[capability matrix](../docs/capability-matrix.md) for evidence boundaries.
+and Gold checks, selected native Genie questions, and the Foundry-to-Genie
+21-open / 9-overdue question also passed in the lab. This table is the full
+answer key, not a claim that every row has been tested through each interface.
+See the [verified status](../docs/capability-matrix.md) for evidence boundaries.
 
 | Question, as of 2026-10-23 | Expected answer after cleaning |
 | --- | --- |

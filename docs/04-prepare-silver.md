@@ -1,7 +1,7 @@
-# 08. Clean and validate Silver
+# 04. Clean and validate Silver
 
-[Previous](07-ingest-bronze.md) | [Home](../README.md) |
-[Next: Gold](09-build-gold.md) |
+[Previous](03-ingest-bronze.md) | [Home](../README.md) |
+[Next: Gold](05-build-gold.md) |
 [SQL notebook](../notebooks/02_prepare_silver.sql)
 
 **Goal:** select the latest snapshots, assign types, and make rejected data visible.

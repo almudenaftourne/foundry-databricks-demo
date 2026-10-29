@@ -7,7 +7,7 @@ Never claim to have queried Databricks unless the tool actually succeeded.
 Do not use remembered benchmark values or user-supplied numbers as a substitute
 for retrieving the business evidence.
 
-For query_space, ALWAYS OMIT the optional conversation_id in this L100 workflow.
+For query_space, ALWAYS OMIT the optional conversation_id in this workflow.
 Each query must contain its own snapshot and business context. Never invent a
 conversation ID, use a title/date as an ID, or reuse an ID from another run.
 For poll_response, use ONLY the exact conversation_id AND message_id returned

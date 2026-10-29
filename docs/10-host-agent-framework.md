@@ -1,6 +1,6 @@
-# Lesson 14: deploy an Agent Framework hosted specialist
+# Lesson 10: deploy an Agent Framework hosted specialist
 
-[Home](../README.md) | [Previous: Genie connection](13-connect-genie.md) |
+[Home](../README.md) | [Previous: Genie connection](09-connect-genie.md) |
 [Portable source](../agents/maf/README.md)
 
 **Goal:** prove standalone Microsoft Agent Framework hosting before connecting
@@ -8,7 +8,7 @@ specialists to the coordinator.
 
 **Current scope:** standalone hosting. The portable delivery-risk analyst
 passed remote build and smoke tests as version 3 in the lab. Connect it using
-[Lesson 16](16-connect-specialists.md).
+[Lesson 12](12-connect-specialists.md).
 The [capability matrix](capability-matrix.md) separates these checks from an
 unverified fresh-clone/new-environment deployment.
 
@@ -46,8 +46,7 @@ packages, Docker, or Application Insights. Use only approved dependencies
 and cloud execution; this is not a way to evade an established restriction.
 
 Authentication/role failures belong in the
-[authentication annex](appendix-authentication.md). Optional local execution
-and download errors belong in the [local-development annex](appendix-local-development.md).
+[authentication annex](appendix-authentication.md).
 
 ## 1. Sign in
 
@@ -168,10 +167,10 @@ before changing state. Keep shared resources and the working coordinator intact.
 
 ## Next
 
-Continue with [Lesson 15: LangGraph hosting](15-host-langgraph.md), then
-[connect both specialists](16-connect-specialists.md). Test the
+Continue with [Lesson 11: LangGraph hosting](11-host-langgraph.md), then
+[connect both specialists](12-connect-specialists.md). Test the
 two distinct roles remotely before connecting them. Observability, security
-boundary tests, evaluation, and resilience belong to the L300 track.
+boundary tests, evaluation, and resilience are outside this baseline.
 
 ## Official references
 

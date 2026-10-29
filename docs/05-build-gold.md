@@ -1,7 +1,7 @@
-# 09. Build business-ready Gold views
+# 05. Build business-ready Gold views
 
-[Previous](08-prepare-silver.md) | [Home](../README.md) |
-[Next: Genie](10-create-genie.md) |
+[Previous](04-prepare-silver.md) | [Home](../README.md) |
+[Next: Genie](06-create-genie.md) |
 [SQL notebook](../notebooks/03_build_gold.sql)
 
 **Goal:** give Genie governed data with clear grain and business definitions.

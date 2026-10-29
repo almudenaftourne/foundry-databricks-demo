@@ -1,7 +1,7 @@
-# 16. Connect the coordinator to both hosted specialists
+# 12. Connect the coordinator to both hosted specialists
 
-[Home](../README.md) | [Agent Framework](14-host-agent-framework.md) |
-[LangGraph](15-host-langgraph.md) | [Video runbook](demo-video.md)
+[Home](../README.md) | [Agent Framework](10-host-agent-framework.md) |
+[LangGraph](11-host-langgraph.md)
 
 **Goal:** one coordinator request retrieves Genie evidence, delegates to both
 cloud-hosted specialists, and returns a delivery brief and proposed checklist.
@@ -9,9 +9,8 @@ cloud-hosted specialists, and returns a delivery brief and proposed checklist.
 This uses a native **Foundry Toolbox** containing an **OpenAPI tool** for the
 hosted **Responses endpoints**. The coordinator consumes its MCP endpoint.
 The toolbox is managed tool configuration, not a fourth agent or custom proxy.
-No A2A support or locally running application is required.
-Three fresh Toolbox-backed remote reviews have passed in the lab, including
-the intended-user Foundry playground. Repeat the checks with your own setup.
+No A2A support or locally running application is required; see
+[verified status](capability-matrix.md) for why this route was used.
 
 ## Before you start
 
@@ -93,7 +92,7 @@ In the coordinator's **Setup > Tools > Add > Add tools > Custom**, choose
 - **Audience:** **`https://ai.azure.com`**.
 
 Choose **Connect**, review the tool, and save the coordinator configuration.
-Keep normal tool approvals; do not select "always approve all" for the recording.
+Keep normal tool approvals; do not select "always approve all".
 
 Keep the existing Genie tool and its authentication unchanged.
 For SDK setup, this is `MCPTool` with `server_label`, `server_url`,
@@ -106,7 +105,7 @@ Replace the initial coordinator instructions with the
 [workflow instructions](../agents/coordinator/instructions.txt), then save
 a new agent version. Keep the existing deployed model and Genie connection.
 Under **Setup > Parameters**, use **medium reasoning effort** for the lab's
-reasoning-model baseline. Allow **16,000 max output tokens** for rehearsals:
+reasoning-model baseline. Allow **16,000 max output tokens**:
 this budget includes reasoning and tool-call arguments, not just the short
 visible answer. If you customize to a model without reasoning settings,
 omit unsupported settings and verify its tool behavior separately.
@@ -117,11 +116,25 @@ all nonzero budget variances. Specialists receive evidence, never credentials.
 
 Source changes alone do not update a saved Foundry prompt agent.
 
-## 5. Rehearse one real conversation
+## 5. Test the workflow
 
-Start a new coordinator playground conversation and use the
-[main recording question](demo-video.md#main-question).
+Start a new coordinator playground conversation and ask:
+
+```text
+Using the dataset snapshot as of 2026-10-23, prepare a project delivery review.
+Include four headline counts: total open, overdue open, blocked open, and
+unassigned open work items, plus the overdue-open share of total open.
+Identify projects needing attention because of overdue, blocked, or unassigned
+open work or modeled effort-budget overruns. Below-budget variance alone is not
+an attention signal. Explain the evidence and propose a concise next-step
+checklist for the recorded project owners.
+Use Genie for the facts and both specialists for their respective tasks.
+Separate observed facts, recommendations, and missing information.
+Do not change any records or claim to execute the recommendations.
+```
+
 Approve the requested read-only Genie and specialist calls under your normal policy.
+Refresh the playground first so you test the saved coordinator version you intend.
 
 Check actual activity, not just the final prose:
 
@@ -131,10 +144,12 @@ Check actual activity, not just the final prose:
 - The downstream results identify the actual hosted agents/versions.
 - The brief matches the fixture: **21 open, 9 overdue, 7 blocked, 7 unassigned**,
   with **42.9%** overdue. The dataset has **8 projects**, **7** needing attention.
-- P001/P003/P005 have positive modeled effort-budget variance. Healthy P008
-  must not enter the action checklist only because it is below budget.
-- Project owners are recorded handles and next steps are clearly proposed.
+- P001/P003/P005 have positive modeled effort-budget variance of EUR 2,000,
+  EUR 200, and EUR 480. Healthy P008 must not enter the action checklist only
+  because it is below budget.
+- Project owners are recorded handles, next steps are clearly proposed, and no
+  completion date is invented.
 
-Complete the [recording-readiness checks](demo-video.md#recording-readiness-checks)
-before calling the video ready. A successful response is not proof of least
-privilege, distributed tracing, or end-to-end user identity propagation.
+A tool error is not a completed workflow: fix it and rerun. A successful response
+is not proof of least privilege, distributed tracing, or end-to-end user identity
+propagation.

@@ -1,7 +1,7 @@
-# 10. Curate Genie over Gold
+# 06. Curate Genie over Gold
 
-[Previous](09-build-gold.md) | [Home](../README.md) |
-[Next: Foundry project](11-create-foundry-project.md)
+[Previous](05-build-gold.md) | [Home](../README.md) |
+[Next: Foundry project](07-create-foundry-project.md)
 
 **Goal:** turn governed business data into a reusable natural-language analytics tool.
 

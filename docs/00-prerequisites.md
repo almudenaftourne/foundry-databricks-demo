@@ -1,6 +1,6 @@
 # 00. Before you start
 
-[Home](../README.md) | [Next: region](01-region-preflight.md)
+[Home](../README.md) | [Next: Databricks](01-prepare-databricks.md)
 
 **Goal:** have approved access, a spending owner, and a copy of the tutorial.
 You can create dedicated resources or reuse an approved environment.
@@ -53,7 +53,7 @@ unexpected tenant/account errors belong in the
 Data preparation uses the Databricks browser UI and SQL notebooks. For hosted
 deployment, install [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli),
 [Azure Developer CLI and the Foundry extension](https://learn.microsoft.com/azure/foundry/how-to/develop/install-cli-sdk)
-before [Lesson 14](14-host-agent-framework.md).
+before [Lesson 10](10-host-agent-framework.md).
 Python package installation and local debugging are not main-path steps.
 
 Compute, storage, inference, and hosted runtime can incur charges. Budget alerts
@@ -61,7 +61,7 @@ are not a hard cap; closing a browser does not disable deployed endpoints.
 Use only synthetic data and keep populated configuration and consent URLs private.
 
 **Ready when:** the environment and costs are approved, access is available,
-and you have the source. Continue with the region check.
+and you have the source. Continue with Lesson 01.
 
 References: [Foundry roles](https://learn.microsoft.com/azure/foundry/concepts/rbac-foundry),
 [OAuth requirements](https://learn.microsoft.com/azure/foundry/agents/how-to/mcp-authentication),

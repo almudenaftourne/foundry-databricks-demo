@@ -1,6 +1,6 @@
-# Lesson 13: connect Foundry to curated Databricks Genie
+# Lesson 09: connect Foundry to curated Databricks Genie
 
-[Home](../README.md) | [Previous: coordinator](12-create-coordinator.md)
+[Home](../README.md) | [Previous: coordinator](08-create-coordinator.md)
 
 **Goal:** have the coordinator retrieve a real benchmark answer through the
 curated Genie MCP tool.
@@ -12,7 +12,7 @@ belong in the [capability matrix](capability-matrix.md).
 ## Prerequisites
 
 - The saved coordinator and a supported model deployment.
-- The curated Genie from Lesson 10 and a successful native Genie baseline.
+- The curated Genie from Lesson 06 and a successful native Genie baseline.
 - An approved organizational identity with access to the intended Foundry
   project, Databricks workspace, Genie, and Gold data.
 - Preview use, data processing, and transfer to the agent approved for the lab.
@@ -138,7 +138,7 @@ Open the response's tool details:
 4. Confirm statement success and compare returned data with the answer.
 
 Response history is not distributed tracing. Application Insights setup is
-deferred to L300; it is not a prerequisite for this baseline.
+not a prerequisite for this baseline.
 
 ## Data and capability boundaries
 
@@ -149,7 +149,7 @@ deferred to L300; it is not a prerequisite for this baseline.
 - Successful sign-in does not prove runtime identity propagation.
 - This baseline is not a two-user security test or a full evaluation.
 
-Continue with [Lesson 14: host the Agent Framework specialist](14-host-agent-framework.md).
+Continue with [Lesson 10: host the Agent Framework specialist](10-host-agent-framework.md).
 
 ## Official references
 

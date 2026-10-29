@@ -1,96 +1,53 @@
 # Annex A: authentication and access troubleshooting
 
-[Home](../README.md) | [Genie integration](13-connect-genie.md) |
-[Hosted specialist](14-host-agent-framework.md)
+[Home](../README.md) | [Genie connection](09-connect-genie.md) |
+[Hosted specialist](10-host-agent-framework.md)
 
-The main tutorial assumes an approved organizational identity and correctly
-configured access. This annex covers issues that can occur; it is not a
-mandatory sequence of workarounds. The lab encountered some of these issues,
-but that does not make them universal product limitations.
-They have not been established as exclusive to internal users.
-Normal sign-in, same-tenant requirements, consent, and required access remain
-in the main tutorial.
+The main tutorial assumes an approved organizational identity and normal
+sign-in. Use this annex only if something goes wrong. These issues occurred in
+the lab; they are not universal product limitations. No real account names,
+tenant IDs, hosts, or credentials are included.
 
-No actual user names, account addresses, tenant/subscription IDs, workspace
-hosts, OAuth credentials, or raw authentication screenshots are included here.
+## 1. Which permission system is involved?
 
-## 1. Distinguish the permission systems
-
-| Layer | What it controls |
+| Layer | Controls |
 | --- | --- |
-| Azure resource RBAC | Resource visibility, provisioning, and authorized role assignment |
-| Foundry roles | Project development, model/tool use, and hosted-agent deployment |
-| Entra directory roles | Tenant administration, not automatic data access |
-| Databricks account roles | Account-wide administration, such as custom OAuth app registration |
-| Databricks workspace roles | Workspace administration and membership |
+| Azure RBAC | Resource visibility, provisioning, role assignment |
+| Foundry roles | Project development, tool use, hosted-agent deployment |
+| Databricks account/workspace roles | Account administration, workspace membership |
 | Unity Catalog privileges | Access to governed data objects |
-| Genie and warehouse permissions | Access to the curated analytics experience and its compute |
+| Genie and warehouse permissions | Access to Genie and its compute |
 
-Azure Owner is not a substitute for every data-plane role. Databricks
-workspace admin does not automatically grant SELECT on an unrelated catalog.
-Do not grant subscription Owner or Global Administrator to fix an unexplained
-access error.
+Azure Owner does not grant data access, and workspace admin does not grant
+SELECT on an unrelated catalog. Do not grant Owner or Global Administrator to
+fix an unexplained error.
 
 ## 2. Confirm identity before changing roles
 
-1. Check the Azure/Foundry account and tenant.
-2. Check the Databricks profile.
-3. In a new SQL query, verify effective SQL identity:
-
-   ```sql
-   SELECT current_user();
-   ```
-
-4. Confirm it is the intended user before granting access or claiming a
-   permission test passed.
-
-Browser profile text and effective SQL identity disagreed during one lab
-attempt. Relaunching the workspace through Azure with the intended user
-restored the expected SQL identity. The precise cause was not established.
-If the mismatch persists, investigate query execution context and identity
-mapping rather than granting more access.
-
-Edge InPrivate windows share their InPrivate session; two such windows do not
-isolate two identities. Use genuinely separate browser profiles where needed.
+Check the Azure/Foundry tenant, the Databricks profile, and the effective SQL
+identity (`SELECT current_user();`). If the profile and SQL identity disagree,
+relaunch the workspace from the Azure portal with the intended user rather than
+granting more access. InPrivate windows share one session; use separate browser
+profiles to isolate identities.
 
 ## 3. Personal accounts, guests, and tenant selection
 
-An `.onmicrosoft.com` domain is a normal Entra tenant domain. It does not imply
-ownership by a particular employer. A `#EXT#` principal is an external identity
-representation, not a separate mailbox or password. Member/Guest type and
-authentication provider are different properties.
-
-Inspect the user's **Identities / Sign-in identifiers** to distinguish
-MicrosoftAccount, another Entra directory, or another provider. A personal
-Microsoft account can use a non-Microsoft email address as its sign-in name.
-
-One personal-account sign-in flow in this lab failed in an unexpected tenant
-context; a directory-native lab identity later completed Managed OAuth.
-That observation does not establish a general ban on personal accounts or
-prove that every guest scenario will fail. Do not prescribe a new tenant or
-subscription transfer as the first fix.
-
-If a new lab identity is explicitly approved, it needs its own resource,
-workspace, data, and Foundry access. Creating the user does not inherit the
-original user's permissions. Never use an unrecognized account, reset its
-password, or change its roles simply because its name sounds administrative.
+An `.onmicrosoft.com` domain is a normal Entra tenant domain, and a `#EXT#`
+principal is an external-identity representation. In the lab, a personal-account
+sign-in failed with an unexpected tenant context, while a directory-native lab
+identity completed Managed OAuth. That does not prove every personal or guest
+account fails. Use an approved identity in the same tenant as the Foundry project;
+a new identity needs its own resource, workspace, data, and Foundry access.
 
 ## 4. A new user cannot open the workspace
 
-Azure Reader grants resource visibility, not Databricks workspace membership.
-An authorized workspace admin can use:
-
-**Settings > Identity and access > Users > Manage > Add user**
-
-Add the intended identity, selecting **Add new** if appropriate and supported.
-Keep an ordinary learner out of the workspace `admins` group unless its
-administrative task specifically requires that role. A privileged lab
-operator is not evidence of least-privilege end-user behavior.
+Azure Reader gives resource visibility, not Databricks membership. A workspace
+admin can add the user under **Settings > Identity and access > Users**. Do not
+add ordinary learners to the `admins` group.
 
 ## 5. Genie warns about missing SELECT
 
-An authorized object owner/grantor can run the following, substituting the
-intended principal. Run it from the grantor's verified SQL session:
+An authorized grantor can run, with the intended principal:
 
 ```sql
 GRANT USE CATALOG ON CATALOG integration_lab TO `<lab-user-or-group>`;
@@ -100,29 +57,19 @@ GRANT SELECT ON TABLE integration_lab.gold.project_summary TO `<lab-user-or-grou
 GRANT SELECT ON TABLE integration_lab.gold.team_summary TO `<lab-user-or-group>`;
 ```
 
-`USE CATALOG` / `USE SCHEMA` do not grant SELECT on every child object.
-`ON TABLE` is also used for the view privileges shown here.
-Do not grant ALL PRIVILEGES, schema-wide SELECT, or ownership merely to
-remove the warning. Warehouse or Genie sharing errors are separate checks.
+Do not grant ALL PRIVILEGES, schema-wide SELECT, ownership, or catalog MANAGE
+just to remove the warning.
 
-If the grant fails because the executing principal lacks MANAGE, verify
-the grantor and object ownership. Do not accept an editor suggestion to
-grant catalog MANAGE to the target reader.
+## 6. Foundry role is missing
 
-## 6. Foundry access or deployment role is missing
-
-- For coordinator development, inspect the documented **Foundry User**
-  assignments and project-identity requirements.
-- For hosted deployment, inspect **Foundry Project Manager** at the
-  intended project scope.
-- An authorized role-assignment administrator makes changes; allow for
-  propagation, then refresh the intended user's session.
-- Record the exact error, principal, and scope privately. Do not switch to
-  shared keys or grant broader roles without a grounded requirement.
+Coordinator development needs **Foundry User**; hosted deployment needs
+**Foundry Project Manager** at project scope. An authorized administrator
+assigns them; allow time to propagate and refresh the session. Do not switch to
+shared keys or grant broader roles without a grounded need.
 
 ## 7. CLI sign-in differs from portal sign-in
 
-`az` and `azd` have separate authentication sessions:
+`az` and `azd` have separate sessions:
 
 ```powershell
 az login
@@ -130,62 +77,31 @@ azd auth login
 azd auth login --check-status
 ```
 
-If browser account selection is ambiguous, a supported explicit-tenant
-device-code flow is:
+If account selection is ambiguous, use
+`azd auth login --tenant-id '<your-lab-tenant-id>' --use-device-code` yourself,
+and never share the device code or URL.
 
-```powershell
-azd auth login --tenant-id '<your-lab-tenant-id>' --use-device-code
-```
+## 8. Consent warnings and repeated approvals
 
-Complete it yourself, with the intended identity. Never share the device
-code or authentication URL. Successful authentication does not establish
-deployment permissions.
+Before accepting a cross-organization warning, verify the connection owner,
+initiating project, target endpoint, and requested access. Connection consent is
+separate from tool-call approval: query and polling tools can each ask, and
+"Approve once" covers one call, not the whole question.
 
-## 8. Consent warnings and repeated approval
+## 9. Custom OAuth (alternative to Managed OAuth)
 
-Verify connection ownership, initiating project, target endpoint, and
-requested access before accepting a cross-organization warning.
-The warning observed in the lab was not independently explained.
-Do not dismiss a warning because a familiar service name appears.
-
-Connection consent is different from tool-call approval. Query and polling
-tools can each require approval. Approve once applies to a call, not a
-whole user question. Review narrowly scoped standing approvals only after
-the tools are understood; their persistence was not verified in this lab.
-
-## 9. Account console and Custom OAuth
-
-Account administration is not required to register your own application
-when the Managed OAuth option is available and used.
-Workspace access, account-console access, and account-admin status are
-different checks. A redirect to a workspace does not prove account admin.
-
-Custom OAuth is the alternative described in the current
-[Databricks integration guide](https://learn.microsoft.com/azure/databricks/integrations/microsoft-foundry).
-It is a normal setup path where Managed OAuth is unavailable or not appropriate,
-not an authentication-error workaround:
-
-1. Have an authorized Databricks account administrator
-   [register the OAuth application](https://learn.microsoft.com/azure/databricks/integrations/enable-disable-oauth#enable-custom-app-ui).
-2. Use the exact callback supplied by Foundry and the required scopes; do not
-   guess callbacks or create dummy credentials.
-3. In the Foundry Genie connector's Custom OAuth form, supply the application
-   client ID, secret if applicable, and authorization/token/refresh URLs from
-   the approved registration and provider documentation.
-4. Store credentials only in the approved connection/secret store, not source.
-5. Connect it, then return to [Lesson 13](13-connect-genie.md) for normal user
-   consent, tool approval, and an actual benchmark call.
-
-Initial Databricks account-admin bootstrap has separate documented Entra
-administrator requirements. Do not automatically grant those roles to the
-demo user. The lab's Custom OAuth path was not completed.
+Custom OAuth is a normal setup where Managed OAuth is unavailable, not an
+error workaround. A Databricks account administrator
+[registers the OAuth application](https://learn.microsoft.com/azure/databricks/integrations/enable-disable-oauth#enable-custom-app-ui)
+using the exact callback shown by Foundry. Enter the client ID, secret if
+applicable, and endpoints in the Genie connector's Custom OAuth form, store
+credentials only in the approved secret store, then return to
+[Lesson 09](09-connect-genie.md) for consent and the benchmark. Do not guess
+callbacks or create dummy credentials. The lab did not complete this path.
 
 ## References
 
-- [Foundry RBAC](https://learn.microsoft.com/azure/foundry/concepts/rbac-foundry)
-- [Hosted-agent permissions](https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions)
-- [Databricks users](https://learn.microsoft.com/azure/databricks/admin/users-groups/users)
-- [Unity Catalog privileges](https://learn.microsoft.com/azure/databricks/data-governance/unity-catalog/manage-privileges/)
-- [Account console and first account admin](https://learn.microsoft.com/azure/databricks/admin/admin-concepts)
-- [External identity properties](https://learn.microsoft.com/entra/external-id/user-properties)
-- [Foundry MCP authentication](https://learn.microsoft.com/azure/foundry/agents/how-to/mcp-authentication)
+[Foundry RBAC](https://learn.microsoft.com/azure/foundry/concepts/rbac-foundry) ·
+[Hosted-agent permissions](https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions) ·
+[Unity Catalog privileges](https://learn.microsoft.com/azure/databricks/data-governance/unity-catalog/manage-privileges/) ·
+[Databricks users](https://learn.microsoft.com/azure/databricks/admin/users-groups/users)

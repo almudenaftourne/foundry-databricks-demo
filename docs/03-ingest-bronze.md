@@ -1,7 +1,7 @@
-# 07. Ingest Bronze
+# 03. Ingest Bronze
 
-[Previous](06-upload-source-files.md) | [Home](../README.md) |
-[Next: Silver](08-prepare-silver.md) |
+[Previous](02-upload-source-files.md) | [Home](../README.md) |
+[Next: Silver](04-prepare-silver.md) |
 [SQL notebook](../notebooks/01_ingest_bronze.sql)
 
 **Goal:** create source-preserving Delta tables from the uploaded CSVs.

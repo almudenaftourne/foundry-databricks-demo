@@ -1,10 +1,10 @@
-# 15. Deploy the LangGraph action planner
+# 11. Deploy the LangGraph action planner
 
-[Previous](14-host-agent-framework.md) | [Home](../README.md) |
-[Source](../agents/langgraph/README.md) | [Video target](demo-video.md)
+[Previous](10-host-agent-framework.md) | [Home](../README.md) |
+[Source](../agents/langgraph/README.md)
 
-**Status:** portable-source version 2 passed remote build, both smoke cases below,
-and native coordinator invocation in the existing lab.
+**Status:** portable-source version 2 passed remote build and both smoke cases
+below in the lab.
 
 **Goal:** host the second framework specialist in the existing project. It
 drafts a proposed owner/action checklist from supplied evidence; it does not
@@ -13,7 +13,7 @@ query Databricks, create tickets, or execute recommendations.
 ## Configure and preview
 
 Use the tools, approved project/model, deployment roles, and runtime-access
-requirements from [Lesson 14](14-host-agent-framework.md).
+requirements from [Lesson 10](10-host-agent-framework.md).
 From the repository root in PowerShell:
 
 ```powershell
@@ -66,8 +66,8 @@ the initial global-counts smoke prompt. Both revised roles passed their lab
 smoke tests; repeat them in your environment.
 
 Independent responses are not collaboration. Continue with
-[Lesson 16: native specialist connections](16-connect-specialists.md), then satisfy the
-[video acceptance checks](demo-video.md). Do not manually copy results between
+[Lesson 12: native specialist connections](12-connect-specialists.md) and run its
+workflow test. Do not manually copy results between
 three playground chats and describe that as a completed workflow.
 
 Reference: [official configuration-driven LangGraph sample](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/langgraph/responses/10-run).

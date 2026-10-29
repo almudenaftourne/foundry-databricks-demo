@@ -8,7 +8,7 @@ facts supplied in a request. It has no Databricks or Genie tools and does
 not produce the owner's action checklist. Percentage calculation and format are model
 instructions, not a deterministic calculation tool or an enforced schema.
 
-Follow [Lesson 14](../../docs/14-host-agent-framework.md) to configure an
+Follow [Lesson 10](../../docs/10-host-agent-framework.md) to configure an
 existing Foundry project and model, review a deployment preview, deploy
 with remote dependency build, and run the smoke test.
 

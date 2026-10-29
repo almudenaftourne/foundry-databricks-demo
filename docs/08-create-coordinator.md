@@ -1,6 +1,6 @@
-# Lesson 12: deploy a model and create the coordinator
+# Lesson 08: deploy a model and create the coordinator
 
-[Home](../README.md) | [Previous: Foundry project](11-create-foundry-project.md)
+[Home](../README.md) | [Previous: Foundry project](07-create-foundry-project.md)
 
 **Goal:** create a Foundry-managed coordinator before connecting its data tool.
 This is a prompt agent, not the Python hosted specialist built later.
@@ -11,7 +11,7 @@ benchmark. See the [capability matrix](capability-matrix.md).
 
 ## Prerequisites
 
-- The Foundry project from Lesson 11.
+- The Foundry project from Lesson 07.
 - Foundry User access for the developer and the applicable project-identity
   permissions, following [Foundry RBAC](https://learn.microsoft.com/azure/foundry/concepts/rbac-foundry).
 - Approved model availability, quota, pricing, and processing geography.
@@ -70,7 +70,7 @@ Keep the saved coordinator. Do not publish a user-facing endpoint yet.
 
 ## Next
 
-Continue with [Lesson 13: connect Genie](13-connect-genie.md).
+Continue with [Lesson 09: connect Genie](09-connect-genie.md).
 
 ## Official references
 

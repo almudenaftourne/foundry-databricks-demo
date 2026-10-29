@@ -1,7 +1,7 @@
-# 06. Upload the synthetic files
+# 02. Upload the synthetic files
 
-[Previous](05-schemas-and-raw-volume.md) | [Home](../README.md) |
-[Next: Bronze](07-ingest-bronze.md)
+[Previous](01-prepare-databricks.md) | [Home](../README.md) |
+[Next: Bronze](03-ingest-bronze.md)
 
 **Goal:** land the original fixture without automatically creating tables.
 
@@ -25,7 +25,7 @@
 extra nested folder. The Bronze notebook will validate their contents.
 
 Do not repair duplicates, blanks, or invalid values: they are intentional inputs
-to the cleaning exercise. Do not upload the whole repository, answer key, or slides.
+to the cleaning exercise. Do not upload the whole repository or the answer key.
 Inspect existing files before overwriting them.
 
 Uploading incurs storage usage; it does not require notebook compute.

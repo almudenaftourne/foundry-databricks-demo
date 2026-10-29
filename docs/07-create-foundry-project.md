@@ -1,6 +1,6 @@
-# Lesson 11: prepare a Foundry project
+# Lesson 07: prepare a Foundry project
 
-[Home](../README.md) | [Previous: native Genie](10-create-genie.md)
+[Home](../README.md) | [Previous: native Genie](06-create-genie.md)
 
 **Goal:** open a dedicated lab project before adding the coordinator.
 The lab's project was created and later used for the working Genie
@@ -23,7 +23,7 @@ duplicate simply because the portal or VS Code has not selected it.
 
 Sign in with the intended organizational lab identity and select the approved
 subscription and directory. Follow [Lesson 00](00-prerequisites.md) for access
-requirements and [Lesson 01](01-region-preflight.md) for regional checks.
+requirements and [Lesson 01](01-prepare-databricks.md) for regional checks.
 
 The lab used Sweden Central. Current documentation reviewed for the lab
 listed that region for Agent Service and hosted agents, but readers must
@@ -70,7 +70,7 @@ that Azure has no projects. Use the
 **Checkpoint:** the intended project opens. Model access, actual tool calls,
 and hosted-agent execution each have their own later checks.
 
-Next: [create the coordinator and choose its model](12-create-coordinator.md).
+Next: [create the coordinator and choose its model](08-create-coordinator.md).
 
 ## Official references
 
